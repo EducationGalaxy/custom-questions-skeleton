@@ -13,11 +13,11 @@
 /* add standard lrn validation colors to the face as well */
 .face.lrn_correct {
   stroke: #4a700a;
-  stroke-width: 7;
+  stroke-width: 6;
 }
 .face.lrn_incorrect {
   stroke: #dd002f;
-  stroke-width: 7;
+  stroke-width: 6;
 }
 .hand {
   fill: black;
@@ -51,4 +51,6 @@ svg text {
   user-select: none;
 }
 
-
+[class^="tick minute-tick-"] {
+  stroke-width: 3; // Makes the line slimmer
+}
