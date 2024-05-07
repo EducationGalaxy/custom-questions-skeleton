@@ -23,10 +23,12 @@ $request = '
                   "stimulus" : "<span>Your question here. Example: </span><br>Oh no! The hands on the clock have gotten all messed up! Help fix the clock by moving the hands to show what time it is! <br><strong>Drag the hands to show 4:30 on the clock.</strong>",
                   "type" : "custom",
                   "js": {
-                    "question": "https://assets-dev.progresslearning.com/custom-questions/clock/question.js",
-                    "scorer": "https://assets-dev.progresslearning.com/custom-questions/clock/scorer.js"
+                    "question": "/dist/question.js",
+                    "scorer": "/dist/scorer.js"
                   },
-                  "css": "https://assets-dev.progresslearning.com/custom-questions/clock/question.css",
+                  "css": "/dist/question.css",
+                  "minute_tolerance": 7,
+                  "hour_tolerance": 7,
                   "score" : 1,
                 "valid_response" : {
                   "hourHandAngle": 45, 
@@ -42,12 +44,12 @@ $request = '
               "custom_type": "custom_clock_question",
               "type": "custom",
               "name": "Custom clock Question",
-              "editor_layout": "https://assets-dev.progresslearning.com/custom-questions/clock/clock_question_authoring.html",
+              "editor_layout": "/dist/clock_question_authoring.html",
               "js": {
-                "question": "https://assets-dev.progresslearning.com/custom-questions/clock/question.js",
-                "scorer": "https://assets-dev.progresslearning.com/custom-questions/clock/scorer.js"
+                "question": "/dist/question.js",
+                "scorer": "/dist/scorer.js"
               },
-              "css": "https://assets-dev.progresslearning.com/custom-questions/clock/question.css",
+              "css": "/dist/question.css",
               "version": "v1.0.0",
               "editor_schema": {
                 "hidden_question": false,
@@ -59,11 +61,25 @@ $request = '
                       "required": false,
                       "default": false
                     },
+                    "minute_tolerance": {
+                      "type": "number",
+                      "name": "Minute Hand Tolerance",
+                      "description": "How many degrees off we will tolerate the minute hand angles in validation.",
+                      "required": true,
+                      "default": 7
+                    },
+                    "hour_tolerance": {
+                      "type": "number",
+                      "name": "Hour Hand Tolerance",
+                      "description": "How many degrees off we will tolerate the hour hand angles in validation.",
+                      "required": true,
+                      "default": 7
+                    },
                     "valid_response": {
                       "name": "Set correct answer(s)",
                       "description": "In this section, configure the correct answer(s) for the question.",
                       "type": "question",
-                      "white_list": ["minHandAngle", "hourHandAngle", "value"]
+                      "white_list": ["minHandAngle", "hourHandAngle", "value", "minute_tolerance", "hour_tolerance"]
                     },
                     "score" : {
                       "type" : "number",

@@ -93,20 +93,26 @@ export default class Clock {
   }
   initHands() {
     // set the clock hands to 10:10
-    const hourHand = drawHand(this.svg, SMALL_HAND_RADIUS, 210, 'hand').attr(
-      'data-angle',
-      210
-    )
+    const hourHand = drawHand(
+      this.svg,
+      SMALL_HAND_RADIUS,
+      210,
+      'hand',
+      this.question.response_id
+    ).attr('data-angle', 210)
 
-    const minHand = drawHand(this.svg, BIG_HAND_RADIUS, 330, 'hand').attr(
-      'data-angle',
-      330
-    )
+    const minHand = drawHand(
+      this.svg,
+      BIG_HAND_RADIUS,
+      330,
+      'hand',
+      this.question.response_id
+    ).attr('data-angle', 330)
 
     this.hourHand = hourHand
     this.minHand = minHand
   }
   drawArrows() {
-    drawArrow(this.svg)
+    drawArrow(this.svg, this.question.response_id)
   }
 }

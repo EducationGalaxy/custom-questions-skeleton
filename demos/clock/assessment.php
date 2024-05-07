@@ -18,6 +18,8 @@ $request = '{
           },
           "css": "/dist/question.css",
           "instant_feedback": true,
+          "hour_tolerance": 7,
+          "minute_tolerance": 7,
           "score" : 1,
           "valid_response" : {
             "hourHandAngle": 45, 
